@@ -15,11 +15,6 @@ const CanvasContainer = styled.div`
 `;
 
 const App = () => {
-  // const { actions } = useAnimations(animations, group);
-  // useEffect(() => {
-  //   actions.CameraAction.play();
-  // }, []);
-
   return (
     <CanvasContainer>
       <Canvas
@@ -27,12 +22,14 @@ const App = () => {
           gl.shadowMap.enabled = true;
           gl.shadowMap.type = THREE.PCFSoftShadowMap;
         }}
+        dpr={[1, 2]}
+        shadows
       >
         <Suspense fallback={<Loader />}>
           <group>
             <Lighting />
             <Ground />
-            <BasketballCourt />
+            <BasketballCourt scale={0.08} position={[1.25, 0.25, 2]} />
           </group>
           <PerspectiveCamera position={[4, 3, 6]} makeDefault />
           <OrbitControls

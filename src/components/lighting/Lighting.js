@@ -2,7 +2,14 @@ const Lighting = () => {
   return (
     <>
       <ambientLight intensity={0.2} l />
-      <spotLight intensity={1} position={[4, 500, 4]} />
+      <spotLight
+        angle={0.1}
+        position={[10, 10, 10]}
+        intensity={1.5}
+        castShadow
+        shadow-mapSize={[2048, 2048]}
+        shadow-bias={-0.00001}
+      />
     </>
   );
 };
