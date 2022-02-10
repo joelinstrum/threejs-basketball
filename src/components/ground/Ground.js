@@ -4,11 +4,11 @@ const Ground = () => (
   <mesh
     position={[0, 0, 0]}
     rotation={[Math.PI / 2, 0, 0]}
-    scale={[12, 12, 12]}
+    scale={60}
     receiveShadow
   >
     <planeBufferGeometry />
-    <meshBasicMaterial color="green" side={DoubleSide} />
+    <meshBasicMaterial color="#808080" side={DoubleSide} />
   </mesh>
 );
 

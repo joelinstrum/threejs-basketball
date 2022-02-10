@@ -6,8 +6,8 @@ import BasketballCourt from "../components/basketball-court";
 import Ground from "../components/ground";
 import Loader from "../components/loader";
 import Lighting from "../components/lighting";
-
-import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import SkyBox from "../components/skybox";
+import CameraControls from "../components/camera-controls";
 
 const CanvasContainer = styled.div`
   width: 100vw;
@@ -23,23 +23,15 @@ const App = () => {
           gl.shadowMap.type = THREE.PCFSoftShadowMap;
         }}
         dpr={[1, 2]}
-        shadows
+        shadows={{ type: "PCFSoftShadowMap" }}
       >
         <Suspense fallback={<Loader />}>
           <group>
             <Lighting />
             <Ground />
-            <BasketballCourt scale={0.08} position={[1.25, 0.25, 2]} />
+            <BasketballCourt scale={0.2} position={[0.25, 0, 0.3]} />
           </group>
-          <PerspectiveCamera position={[4, 3, 6]} makeDefault />
-          <OrbitControls
-            enablePan={true}
-            enableZoom
-            enableRotate
-            zoomSpeed={0.6}
-            panSpeed={0.5}
-            rotateSpeed={0.4}
-          />
+          <CameraControls />
         </Suspense>
       </Canvas>
     </CanvasContainer>

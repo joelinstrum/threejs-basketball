@@ -1,1 +1,1 @@
-export { default } from "./BasketballCourt";
+export { default } from "./BasketballCourt.js";

@@ -1,16 +1,7 @@
-import { useLayoutEffect } from "react";
-import { useGLTF } from "@react-three/drei/core/useGLTF";
+import Model from "./Scene";
 
-export const BasketballCourt = (props) => {
-  const { scene } = useGLTF("/assets/models/court/scene.gltf");
-  useLayoutEffect(
-    () =>
-      scene.traverse(
-        (obj) => obj.isMesh && (obj.castShadow = obj.receiveShadow = true)
-      ),
-    [scene]
-  );
-  return <primitive object={scene} {...props} />;
+const BasketballCourt = (props) => {
+  return <Model {...props} />;
 };
 
 export default BasketballCourt;
